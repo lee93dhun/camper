@@ -1,0 +1,165 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <th:block fragment="css">
+        <style>
+            /* 헤더 투명 */
+            .header{
+                background: transparent !important;
+            }
+            /*헤더 밑줄 제거*/
+            .navbar{
+                border-bottom: none !important;
+            }
+
+            body{
+                background-image: url('images/main/addCamp-bg-1-1.jpg');
+                background-repeat: no-repeat;
+            }
+            .container{
+                margin-bottom: 100px;
+                margin-top: 100px;
+            }
+            .ch-member{
+                display: flex;
+                justify-content: space-evenly;
+                width: 100%;
+                margin: 10px;
+            }
+            .ch-member div label{
+                margin: 0 10px 0 0;
+            }
+            select {
+                width:300px;
+                padding:5px;
+                border:1px solid #999;
+                border-radius:3px;
+                -webkit-appearance: none;
+                -moz-appearance: none;
+                appearance : none;
+            }
+            select::-ms-expand {
+                display: none;
+            }
+
+            .dropdown-op{
+              background-color: #263343;
+              color: white;
+              font-size: 15px;
+            }
+
+            #content-box{
+                height: 50px !important;
+            }
+
+            .addRoom-control{
+                  background: transparent;
+                  border: none;
+                  height: 50px;
+                  color: white ;
+                  border: 1px solid transparent;
+                  background: rgba(255, 255, 255, 0.4);
+                  border-radius: 16px;
+                  padding-left: 20px;
+                  padding-right: 20px;
+                  -webkit-transition: 0.3s;
+                  -o-transition: 0.3s;
+                  transition: 0.3s; }
+
+                .addRoom-control:hover, .addRoom-control:focus, {
+                    background: transparent;
+                    outline: none;
+                    -webkit-box-shadow: none;
+                    box-shadow: none;
+                    border-color: rgba(255, 255, 255, 0.4);
+                }
+                @media (prefers-reduced-motion: reduce) {
+                    .addRoom-control {
+                      -webkit-transition: none;
+                      -o-transition: none;
+                      transition: none; }
+                }
+                  .addRoom-control::-webkit-input-placeholder {
+                    /* Chrome/Opera/Safari */
+                    color: rgba(255, 255, 255, 0.8) ; }
+                  .addRoom-control::-moz-placeholder {
+                    /* Firefox 19+ */
+                    color: rgba(255, 255, 255, 0.8) ; }
+                  .addRoom-control:-ms-input-placeholder {
+                    /* IE 10+ */
+                    color: rgba(255, 255, 255, 0.8) ; }
+                  .addRoom-control:-moz-placeholder {
+                    /* Firefox 18- */
+                    color: rgba(255, 255, 255, 0.8) ; }
+
+                    .addRoom-control:focus {
+                         border-color: rgba(255, 255, 255, 0.4);
+                    }
+
+        </style>
+    </th:block>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link rel="stylesheet" href="css/loginstyle.css">
+
+
+</head>
+<div layout:fragment="content" class="img js-fullheight">
+    <section class="ftco-section" id="main-content">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="login-wrap p-0">
+                        <div class="page-title">
+                            <a href="/"><img src="../images/main/icon_before_fff.png"></a>
+                            <h3>객실 등록</h3>
+                        </div>
+                        <form class="addRoom-form">
+                            <div class="form-group">
+                                <input type="text" class="addRoom-control" placeholder="객실이름" >
+                                <!-- <p th:if="${#fields.hasErrors('campName')}" th:errors="*{campName}" class="fieldError">Incorrect date</p>-->
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="addRoom-control" placeholder="가격" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="textarea" id="content-box" class="addRoom-control" placeholder="" required>
+                            </div>
+
+                            <!--              <div class="form-group">-->
+                            <!--                <select value="숙소유형" class="addCamp_dropdown" aria-label="Default select example">-->
+                            <!--                  <option class="dropdown-op" value="" hidden>&#45;&#45; 숙소유형 &#45;&#45;</option>-->
+                            <!--                  <option class="dropdown-op" value="1">캠핑</option>-->
+                            <!--                  <option class="dropdown-op" value="2">글램핑</option>-->
+                            <!--                  <option class="dropdown-op" value="3">카라반</option>-->
+                            <!--                </select>-->
+                            <!--              </div>-->
+                            <div class="form-group">
+                                <input type="text" class="addRoom-control" placeholder="객실 이미지 1" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="addRoom-control" placeholder="객실 이미지 2" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="addRoom-control" placeholder="객실 이미지 3" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="addRoom-control" placeholder="객실 이미지 4" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="addRoom-control" placeholder="객실 이미지 5" required>
+                            </div>
+
+                            <button class="form-control btn btn-primary submit px-3" >가입하기</button>
+                            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</html>

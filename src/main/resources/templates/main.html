@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<th:block layout:fragment="css">
+    <style>
+        /* 헤더 투명 */
+        .header{
+            background: transparent !important;
+        }
+        /*헤더 밑줄 제거*/
+        .navbar{
+            border-bottom: none !important;
+        }
+
+
+
+        @import url('https://fonts.googleapis.com/css2?family=Mouse+Memoirs&display=swap');
+
+        .no{
+            font-family: 'Mouse Memoirs', sans-serif;
+            color:white;
+            margin:50px auto;
+            width:100%;
+            font-size: 50px;
+            letter-spacing : 20px;
+            text-align:center;
+
+            text-shadow: 0 0 5px #fff;
+        }
+        .main_img {
+            height: 800px;
+
+        }
+
+        .main_items{
+            position: relative; top: -650px;
+        }
+
+        .search{
+            margin: 74px 0 100px 0;
+            display: flex;
+            justify-content: center;
+
+        }
+        .search input{
+            padding-left: 30px;
+            width: 700px;
+            height: 52px;
+            border: none;
+            border-radius: 15px 0 0 15px;
+            font-size: 20px;
+            box-shadow: 1px 1px 10px 1px white;
+            background-color: #ffffff;
+            opacity: 0.8;
+        }
+        .search input:hover{
+            opacity: 1;
+        }
+        .search input:focus{
+            outline: none;
+            opacity: 1;
+
+        }
+        .search img{
+            height: 52px;
+            border-radius: 0 15px 15px 0;
+            box-shadow: 1px 1px 10px white;
+            opacity: 0.8;
+        }
+        .search img:hover{
+            opacity: 1;
+        }
+
+        .main_menu{
+            display: flex;
+            justify-content: center;
+
+        }
+        .main_menu ul{
+            padding-left: 0;
+        }
+        .main_menu li{
+            width: 120px;
+            height: 120px;
+            display: inline-block;
+            margin: 10px 50px;
+            padding: 0px;
+            box-shadow: 1px 1px 10px white;
+            border-radius: 20px;
+            background-color: #FFFFFF;
+            opacity: 0.8;
+        }
+        .main_menu li:hover{
+            opacity: 1;
+        }
+
+        .main_menu img{
+            margin: 10px;
+            width: 100px;
+            height: 100px;
+        }
+        body{
+            background-image: url('images/main/main_12-2.png');
+            background-repeat: no-repeat;
+            background-position: center top;
+        }
+
+    </style>
+</th:block>
+
+<body layout:fragment="content">
+    <div class="main_content">
+        <div class="main_img">
+
+        </div>
+        <div class="main_items">
+            <div class="no">
+                AMOR CAMP
+            </div>
+
+            <div class="search">
+                <input type="text" placeholder=" 검색할 캠핑장명, 지역을 입력해주세요.">
+                <a href="#"><img src="images/main/icon_GO_2.png"></a>
+            </div>
+            <div class="main_menu">
+                <ul>
+                    <li><a href="/campSearch"><img src="images/main/camping_1.png"></a></li>
+                    <li><a href="/campSearch"><img src="images/main/glamping_1.png"></a></li>
+                    <li><a href="/campSearch"><img src="images/main/caravan_1.png"></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="slider">
+            <input type="radio" name="slide" id="slide1" checked>
+            <input type="radio" name="slide" id="slide2">
+            <input type="radio" name="slide" id="slide3">
+            <input type="radio" name="slide" id="slide4">
+            <ul id="imgholder" class="imgs">
+                <li><img src="images/main/slide1.jpg"></li>
+                <li><img src="images/main/slide2.jpg"></li>
+                <li><img src="images/main/slide3.jpg"></li>
+                <li><img src="images/main/slide4.jpg"></li>
+            </ul>
+            <div class="bullets">
+                <label for="slide1">&nbsp;</label>
+                <label for="slide2">&nbsp;</label>
+                <label for="slide3">&nbsp;</label>
+                <label for="slide4">&nbsp;</label>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

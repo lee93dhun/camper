@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+  <meta charset="UTF-8">
+  <title>사업자 가입승인</title>
+  <link rel="stylesheet" href="css/list_1.css">
+</head>
+<body>
+<section layout:fragment="content" class="page_form">
+  <div class="list_page_form">
+    <div class="page_title">
+      <h2>사업자 가입 승인</h2>
+    </div>
+    <div class="list_table">
+      <table>
+        <tr>
+          <th>사업자</th>
+          <th>연락처</th>
+          <th>캠핑장 이름</th>
+          <th>캠핑장 주소</th>
+          <th>사업자 번호</th>
+          <th>가입승인</th>
+          <th>가입거절</th>
+        </tr>
+        <tr>
+          <td>채리</td>
+          <td>01012345678</td>
+          <td>브레인 캠핑장</td>
+          <td>서울시 구로구</td>
+          <td>123-12-1234</td>
+          <td><input type="button" class="permit_chk permission" value=""></td>
+          <td><input type="button" class="permit_chk reject" value=""></td>
+        </tr>
+        <tr>
+          <td>사재원</td>
+          <td>01087654321</td>
+          <td>타이핑 캠핑장</td>
+          <td>서울시 은평구</td>
+          <td>456-45-4567</td>
+          <td><input type="button" class="permit_chk permission" value=""></td>
+          <td><input type="button" class="permit_chk reject" value=""></td>
+        </tr>
+        <tr>
+          <td>이도훈</td>
+          <td>01056781234</td>
+          <td>디테일 캠핑장</td>
+          <td>서울시 구로구</td>
+          <td>789-78-7890</td>
+          <td><input type="button" class="permit_chk permission" value=""></td>
+          <td><input type="button" class="permit_chk reject" value=""></td>
+        </tr>
+      </table>
+    </div>
+    <div>
+      <ul class="pagination justify-content-center">
+        <li class="page-item">
+          <a aria-label='Previous' class="page-link">
+            <span aria-hidden="true">이전</span>
+          </a>
+        </li>
+        <li class="page-item">
+          <a tclass="page-link">[[${page}]]</a>
+        </li>
+        <li class="page-item" >
+          <a aria-label="Next" class="page-link">
+            <span aria-hidden="true">다음</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+</body>
+</html>

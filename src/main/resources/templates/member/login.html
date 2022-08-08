@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Login </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link rel="stylesheet" href="/css/loginstyle.css">
+    <style>
+        body{
+            background-image: url('/images/main/main_14.jpg');
+            height: 1000px;
+        }
+
+        .page-title{
+            margin-bottom:50px;
+        }
+
+
+    </style>
+</head>
+<body class="img js-fullheight">
+<section class="ftco-section">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center mb-5">
+                <h2 class="heading-section">AMOR CAMP</h2>
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="login-wrap p-0">
+                    <div class="page-title">
+                        <a href="/"><img src="../images/main/icon_before_fff.png"></a>
+                        <h3>로그인</h3>
+                    </div>
+                    <form action="/login" method="post" role="form" class="signin-form">
+                        <div class="form-group">
+                            <input th:for="email" type="email" name="email" class="form-control" placeholder="이메일" required>
+                        </div>
+                        <div class="form-group">
+                            <input th:for="password" id="password-field" type="password" name="password" class="form-control" placeholder="비밀번호" required>
+                        </div>
+                        <p th:if="${loginErrorMsg}" class="error" th:text="${loginErrorMsg}"></p>
+                        <div class="form-group">
+                            <button type="submit" name="member" class="form-control btn btn-primary submit px-3">로그인</button>
+                        </div>
+                        <div class="form-group d-md-flex">
+                            <div class="w-50 text-md-left">
+                                <a href="#" style="color: #fff">비밀번호 찾기</a>
+                            </div>
+                            <div class="w-50 text-md-right">
+                                <a href="/join" style="color: #fff">회원가입</a>
+                            </div>
+                        </div>
+                        <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+                    </form>
+                    <p class="w-100 text-center">SNS 로그인</p>
+                    <div class="social d-flex text-center">
+                        <a href="#" class="px-2 py-2 mr-md-1 rounded"><span class="ion-logo-facebook mr-2"></span> 카카오톡</a>
+                        <a href="#" class="px-2 py-2 ml-md-1 rounded"><span class="ion-logo-twitter mr-2"></span> 네이버</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script src="js/main.js"></script>
+
+</body>
+</html>

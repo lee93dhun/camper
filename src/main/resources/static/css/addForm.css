@@ -1,0 +1,51 @@
+.content_form{
+            width: min-content;
+            margin: 5px auto;
+            padding: 20px;
+}
+
+.add_form{
+    margin: 20px;
+}
+.add_form button{
+    width: 200px;
+    height: 40px;
+    border: 1px solid #ca2027;
+    background-color: #ca2027;
+    color: #fff;
+    border-radius: 5px;
+    margin: 0 auto;
+}
+.add_form_ctrl{
+    width: 700px;
+    height: 40px;
+    padding: 0 15px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    font-size: 17px;
+    webkit-appearance: none;
+     -moz-appearance: none;
+     appearance: none;
+}
+select{
+   color
+}
+select:hover{
+    cursor: pointer;
+}
+.detail{
+    height: 300px;
+    resize: none;
+    padding-top: 10px;
+}
+.type-btn{
+    width: 200px;
+    height: 40px;
+    border: 1px solid gray;
+    background: #fff;
+    border-radius: 5px;
+
+}
+.active{
+    border: 2px solid red;
+}

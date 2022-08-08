@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>객실등록</title>
+    <link rel="stylesheet" href="css/addForm.css">
+
+    <script>
+
+    $(document).ready(function(){
+        $('.camping').click(function(){
+            $('.camping').toggleClass('active')
+            $('.glamping').removeClass('active')
+            $('.caravan').removeClass('active')
+        });
+
+        $('.glamping').click(function(){
+            $('.glamping').toggleClass('active')
+            $('.camping').removeClass('active')
+            $('.caravan').removeClass('active')
+        });
+
+        $('.caravan').click(function(){
+            $('.caravan').toggleClass('active')
+            $('.camping').removeClass('active')
+            $('.glamping').removeClass('active')
+        });
+    });
+    </script>
+</head>
+<body>
+    <section layout:fragment="content" class="page_form">
+        <form class="content_form">
+            <div class="add_form">
+                <h2>객실 등록</h2>
+            </div>
+            <div class="add_form">
+                <input type="text" class="add_form_ctrl name" placeholder="객실이름">
+            </div>
+            <div class="add_form">
+                <input type="text" class="add_form_ctrl price" placeholder=가격>
+            </div>
+            <div class="add_form" style="display: flex; justify-content: space-between;">
+                <input type="button" class="type-btn camping" value="캠핑">
+                <input type="button" class="type-btn glamping" value="글램핑">
+                <input type="button" class="type-btn caravan" value="카라반">
+            </div>
+            <div class="add_form">
+                <textarea class="add_form_ctrl detail" placeholder="객실 기본정보"></textarea>
+            </div>
+            <div class="add_form">
+                <input type="text" class="add_form_ctrl img-1" placeholder="객실이미지 1">
+            </div>
+            <div class="add_form">
+                <input type="text" class="add_form_ctrl img-2" placeholder="객실이미지 2">
+            </div>
+            <div class="add_form">
+                <input type="text" class="add_form_ctrl img-3" placeholder="객실이미지 3">
+            </div>
+            <div class="add_form">
+                <input type="text" class="add_form_ctrl img-4" placeholder="객실이미지 4">
+            </div>
+            <div class="add_form">
+                <input type="text" class="add_form_ctrl img-5" placeholder="객실이미지 5">
+            </div>
+            <div class="add_form" style="display: flex; justify-content: center; ">
+                <button type="submit">등록하기</button>
+            </div>
+        </form>
+    </section>
+</body>
+</html>

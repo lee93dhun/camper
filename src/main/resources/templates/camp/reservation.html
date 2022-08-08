@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>예약내역</title>
+    <link rel="stylesheet" href="css/list_1.css">
+    </style>
+</head>
+<body>
+  <section layout:fragment="content" class="page_form">
+      <div class="list_page_form">
+          <div class="page_title">
+              <h2>예약 내역</h2>
+          </div>
+          <div class="search-content" >
+              <select class="search-type">
+                  <option value="객실이름">객실이름</option>
+                  <option value="체크인">체크인</option>
+                  <option value="체크아웃">체크아웃</option>
+                  <option value="예약자" selected>예약자</option>
+                  <option value="연락처">연락처</option>
+                  <option value="이메일">이메일</option>
+                  <option value="예약상태">예약상태</option>
+              </select>
+              <input type="text" class="search-text">
+              <button type="button" class="search-btn">검색</button>
+          </div>
+          <div class="list_table">
+              <table>
+                  <tr>
+                      <th>객실 이름</th>
+                      <th>체크 인</th>
+                      <th>체크 아웃</th>
+                      <th>예약자</th>
+                      <th>연락처</th>
+                      <th>Email</th>
+                      <th>예약 상태</th>
+                  </tr>
+                  <tr>
+                      <td>왕자님방</td>
+                      <td>2022-08-08</td>
+                      <td>2022-08-10</td>
+                      <td>이도훈</td>
+                      <td>01066254885</td>
+                      <td>dohuny2@gmail.com</td>
+                      <td><label class="b_status complete">예약완료</label></td>
+                  </tr>
+                  <tr>
+                      <td>왕자님방왕자님방왕자님방</td>
+                      <td>2022-08-08</td>
+                      <td>2022-08-10</td>
+                      <td>이도훈</td>
+                      <td>01066254885</td>
+                      <td>dohuny2@gmail.com</td>
+                      <td><label class="b_status cancel">예약취소</label></td>
+                  </tr>
+                  <tr>
+                      <td>왕자님방</td>
+                      <td>2022-08-08</td>
+                      <td>2022-08-10</td>
+                      <td>이도훈</td>
+                      <td>01066254885</td>
+                      <td>dohuny2@gmail.com</td>
+                      <td><label class="b_status end">이용완료</label></td>
+                  </tr>
+              </table>
+          </div>
+          <div>
+              <ul class="pagination justify-content-center">
+                  <li class="page-item">
+                      <a aria-label='Previous' class="page-link">
+                          <span aria-hidden="true">이전</span>
+                      </a>
+                  </li>
+                  <li class="page-item">
+                      <a tclass="page-link">[[${page}]]</a>
+                  </li>
+                  <li class="page-item" >
+                      <a aria-label="Next" class="page-link">
+                          <span aria-hidden="true">다음</span>
+                      </a>
+                  </li>
+              </ul>
+          </div>
+      </div>
+  </section>
+</body>
+</html>
