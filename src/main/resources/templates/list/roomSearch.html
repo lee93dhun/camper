@@ -13,68 +13,34 @@
 <body>
     <section layout:fragment="content" class="page_form">
         <div class="search_form">
-            <form class="left_contents">
+            <div class="left_contents">
                 <div class="l_content">
                     <h2>Mega Camping</h2>
                 </div>
+                <hr>
                 <div class="l_content">
-                    <input type="text" name="daterange" value="01/01/2022 - 01/15/2022" />
+                    <input type="text" class="booking-date" name="daterange" value="01/01/2022 - 01/15/2022" />
+                    <button type="submit" class="search_btn">search</button>
                 </div>
-                <div class="l_content">
-                    <label>캠핑 유형</label><br>
-                    <input type="checkbox"><label>캠핑</label><br>
-                    <input type="checkbox"><label>글램핑</label><br>
-                    <input type="checkbox"><label>카라반</label>
+                <hr>
+                <div class="l_content detail-info">
+                    <img src="images/main/main_14.jpg" class="rep_img">
+                    <hr>
+                    <a href="https://map.naver.com/v5/entry/place/1654161574?c=14130851.9229325,4516849.6538616,18,0,0,0,dh">
+                        <i class="fa-solid fa-location-dot" style="margin:0 5px;"></i>
+                        <label class="camp_address">서울 마포구 신촌로 128</label>
+                    </a>
+                    <hr>
+                    <div class="detail_content">
+                        <label>※ 공지사항 ※</label>
+                        <p>입실시간 : 15:00 ~ 18:00<br>
+                            퇴실시간 : 11:00</p>
+                        <p>문의 전화 010-1111-5046</p>
+                        <p>※ 개인사정 및 우천으로 인한 날짜변경은 안되며, 환불규정에 의해 처리됩니다.
+                            ※ 예약 취소는 환불규정에 의해 처리됩니다.</p>
+                    </div>
                 </div>
-                <div class="l_content">
-                    <label>캠핑장 주변 환경1111</label><br>
-                    <input type="checkbox"><label>산</label><br>
-                    <input type="checkbox"><label>바다</label><br>
-                    <input type="checkbox"><label>계곡</label><br>
-                    <input type="checkbox"><label>도심</label>
-                </div>
-                <div class="l_content">
-                    <label>지역</label><br>
-                    <select class="search_dropdown" name="area">
-                        <option class="dropdown-op" value="" hidden>지역을 선택해 주세요.</option>
-                        <optgroup class="dropdown-op" label="서울">
-                            <option class="dropdown-op" value="">강남</option>
-                            <option class="dropdown-op" value="">구로</option>
-                            <option class="dropdown-op" value="">은평</option>
-                        </optgroup>
-                        <optgroup class="dropdown-op" label="경기도">
-                            <option class="dropdown-op" value="">수원</option>
-                            <option class="dropdown-op" value="">고양</option>
-                            <option class="dropdown-op" value="">부천</option>
-                        </optgroup>
-                        <optgroup class="dropdown-op" label="경상도">
-                            <option class="dropdown-op" value="">울산</option>
-                            <option class="dropdown-op" value="">대구</option>
-                            <option class="dropdown-op" value="">부산</option>
-                        </optgroup>
-                        <optgroup class="dropdown-op" label="충청도">
-                            <option class="dropdown-op" value="">아산</option>
-                            <option class="dropdown-op" value="">당진</option>
-                            <option class="dropdown-op" value="">천안</option>
-                        </optgroup>
-                        <optgroup class="dropdown-op" label="강원도">
-                            <option class="dropdown-op" value="">속초</option>
-                            <option class="dropdown-op" value="">평창</option>
-                            <option class="dropdown-op" value="">강릉</option>
-                        </optgroup>
-                        <optgroup class="dropdown-op" label="전라도">
-                            <option class="dropdown-op" value="">목포</option>
-                            <option class="dropdown-op" value="">광주</option>
-                            <option class="dropdown-op" value="">전주</option>
-                        </optgroup>
-                        <optgroup class="dropdown-op" label="제주">
-                            <option class="dropdown-op" value="">제주</option>
-                            <option class="dropdown-op" value="">서귀포</option>
-                        </optgroup>
-                    </select>
-                </div>
-                <button type="submit" class="search_btn">search</button>
-            </form>
+            </div>
 
 
             <div class="right_contents">
@@ -86,21 +52,20 @@
                     <table onclick="goRoomSearch()">
                         <tr>
                             <td rowspan="3" class="td_img"><img src="images/main/main_7.jpg"></td>
-                            <td class="content_item td_name">Mega Camping</td>
-                            <td rowspan="2" class="content_item td_price">1박 <span>150,000 ~</span></td>
+                            <td class="content_item td_name">바다가 눈이부셔 눈이머는 방</td>
+                            <td rowspan="2" class="content_item td_price">1박 <span>150,000</span></td>
                         </tr>
                         <tr>
                             <td class="content_item td_hashtag">
                                 <label>#캠핑 #글램핑 #카라반</label>
-                                <label>#산</label>
+                                <label>#바다</label>
                                 <label>#마포</label>
                             </td>
                         </tr>
                         <tr>
-                            <td class="content_item td_detail">
+                            <td class="content_item td_detail" colspan="2" style="padding-right: 20px; padding-bottom: 5px;">
                                 국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
                             </td>
-                            <td class="content_item td_heart"><i class="ri-heart-3-line"></i></td>
                         </tr>
                     </table>
 
@@ -108,50 +73,48 @@
                     <table onclick="goRoomSearch()">
                         <tr>
                             <td rowspan="3" class="td_img"><img src="images/main/main_6.jpg"></td>
-                            <td class="content_item td_name">Brain Camping</td>
-                            <td rowspan="2" class="content_item td_price">1박 <span>100,000 ~</span></td>
+                            <td class="content_item td_name">감성에 취해 꽐라되는 방</td>
+                            <td rowspan="2" class="content_item td_price">1박 <span>100,000</span></td>
                         </tr>
                         <tr>
                             <td class="content_item td_hashtag">
                                 <label>#캠핑 #글램핑 #카라반</label>
-                                <label>#바다</label>
+                                <label>#도심</label>
                                 <label>#구로</label>
                             </td>
                         </tr>
                         <tr>
-                            <td class="content_item td_detail">
-                                국내 최대 규모 캠핑장 BRAIN CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
+                            <td class="content_item td_detail" colspan="2" style="padding-right: 20px; padding-bottom: 5px;">
+                                국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
                             </td>
-                            <td class="content_item td_heart"><i class="ri-heart-3-line"></i></td>
                         </tr>
                     </table>
 
                     <table onclick="goRoomSearch()">
                         <tr>
                             <td rowspan="3" class="td_img"><img src="images/main/main_8.jpg"></td>
-                            <td class="content_item td_name">Detail Camp</td>
-                            <td rowspan="2" class="content_item td_price">1박 <span>90,000 ~</span></td>
+                            <td class="content_item td_name">모기가 많아 피빨리는 방</td>
+                            <td rowspan="2" class="content_item td_price">1박 <span>90,000</span></td>
                         </tr>
                         <tr>
                             <td class="content_item td_hashtag">
                                 <label>#캠핑 #글램핑</label>
-                                <label>#계곡</label>
+                                <label>#산</label>
                                 <label>#구로</label>
                             </td>
                         </tr>
                         <tr>
-                            <td class="content_item td_detail">
-                                국내 최대 규모 캠핑장 Detail CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
+                            <td class="content_item td_detail" colspan="2" style="padding-right: 20px; padding-bottom: 5px;">
+                                국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
                             </td>
-                            <td class="content_item td_heart"><i class="ri-heart-3-line"></i></td>
                         </tr>
                     </table>
 
                     <table onclick="goRoomSearch()">
                         <tr>
                             <td rowspan="3" class="td_img"><img src="images/main/main_9.jpeg"></td>
-                            <td class="content_item td_name">I 캠핑장</td>
-                            <td rowspan="2" class="content_item td_price">1박 <span>90,000 ~</span></td>
+                            <td class="content_item td_name">둘이 들어가 셋이 되는 방</td>
+                            <td rowspan="2" class="content_item td_price">1박 <span>90,000</span></td>
                         </tr>
                         <tr>
                             <td class="content_item td_hashtag">
@@ -161,10 +124,9 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="content_item td_detail">
-                                국내 최대 규모 캠핑장 I 캠핑장 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
+                            <td class="content_item td_detail" colspan="2" style="padding-right: 20px; padding-bottom: 5px;">
+                                국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
                             </td>
-                            <td class="content_item td_heart"><i class="ri-heart-3-line"></i></td>
                         </tr>
                     </table>
 
