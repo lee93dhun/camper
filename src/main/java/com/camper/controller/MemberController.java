@@ -59,4 +59,11 @@ public class MemberController {
         return "redirect:/";
 
     }
+
+    // 내 정보
+    @GetMapping(value = "/myInfo")
+    public String myInfo(Model model){
+        model.addAttribute("memberFormDto", new MemberFormDto());
+        return "/member/myInfo";
+    }
 }
