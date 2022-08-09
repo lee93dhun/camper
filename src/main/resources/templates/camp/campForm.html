@@ -24,32 +24,41 @@
 </th:block>
 <body>
 <section layout:fragment="content" class="page_form">
-  <form class="content_form">
+  <form class="content_form" role="form" method="post" enctype="multipart/form-data" th:object="${campFormDto}">
     <div class="add_form">
       <h2>캠핑장 등록</h2>
+      <input type="hidden" th:field="*{id}">
     </div>
     <div class="add_form">
-      <input type="text" class="add_form_ctrl name" placeholder="캠핑장 이름">
+      <input type="text" class="add_form_ctrl name" th:field="*{campName}" placeholder="캠핑장 이름">
     </div>
+    <p th:if="${#fields.hasErrors('campName')}" th:errors="*{campName}" class="fieldError">Incorrect data</p>
+
     <div class="add_form">
-      <input type="text" class="add_form_ctrl price" placeholder="캠핑장 주소"
+      <input type="text" class="add_form_ctrl price" th:field="*{address}" placeholder="캠핑장 주소"
              id="address_kakao" name="address" readonly>
     </div>
+    <p th:if="${#fields.hasErrors('address')}" th:errors="*{address}" class="fieldError">Incorrect data</p>
 
     <div class="add_form checkInOut-time">
-      <input type="text" class="add_form_ctrl" placeholder="입실시간 ex) 15:00">
-      <input type="text" class="add_form_ctrl" placeholder="퇴실시간 ex) 11:00">
+      <input type="text" class="add_form_ctrl" th:field="*{inTime}" placeholder="입실시간 ex) 15:00">
+      <p th:if="${#fields.hasErrors('inTime')}" th:errors="*{inTime}" class="fieldError">Incorrect data</p>
+      <input type="text" class="add_form_ctrl" th:field="*{outTime}" placeholder="퇴실시간 ex) 11:00">
+      <p th:if="${#fields.hasErrors('outTime')}" th:errors="*{outTime}" class="fieldError">Incorrect data</p>
     </div>
 
     <div class="add_form">
-      <textarea type="text" class="add_form_ctrl camp_info" placeholder="캠핑장 상세정보"></textarea>
+      <textarea type="text" class="add_form_ctrl camp_info" th:field="*{campInfo}" placeholder="캠핑장 상세정보"></textarea>
     </div>
+    <p th:if="${#fields.hasErrors('campInfo')}" th:errors="*{campInfo}" class="fieldError">Incorrect data</p>
 
     <div class="add_form">
-      <input type="text" class="add_form_ctrl price" placeholder="사업자 번호">
+      <input type="text" class="add_form_ctrl price" th:field="*{bNumber}" placeholder="사업자 번호">
     </div>
+    <p th:if="${#fields.hasErrors('bNumber')}" th:errors="*{bNumber}" class="fieldError">Incorrect data</p>
+
     <div class="add_form">
-      <select class="add_form_ctrl" name="area">
+      <select class="add_form_ctrl" th:field="*{campArea}" name="area">
         <option class="dropdown-op" value="" hidden>지역을 선택해 주세요.</option>
         <optgroup class="dropdown-op" label="서울">
           <option class="dropdown-op" value="">강남</option>
@@ -87,8 +96,10 @@
         </optgroup>
       </select>
     </div>
+    <p th:if="${#fields.hasErrors('area')}" th:errors="*{campArea}" class="fieldError">Incorrect data</p>
+
     <div class="add_form">
-      <select class="add_form_ctrl" name="surrounding">
+      <select class="add_form_ctrl" th:field="*{surroundings}" name="surrounding">
         <option class="dropdown-op" value="" hidden>캠핑장 주변환경을 선택해 주세요.</option>
         <option class="dropdown-op" value="">산</option>
         <option class="dropdown-op" value="">바다</option>
@@ -96,10 +107,34 @@
         <option class="dropdown-op" value="">도심</option>
       </select>
     </div>
-    <div class="add_form">
-      <input type="text" class="add_form_ctrl img-1" placeholder="캠핑장 대표 이미지">
+    <p th:if="${#fields.hasErrors('surroundings')}" th:errors="*{surroundings}" class="fieldError">Incorrect data</p>
+
+<!--    <div class="add_form">-->
+<!--      <input type="text" class="add_form_ctrl img-1" th:field="*{campImg}" placeholder="캠핑장 대표 이미지">-->
+<!--    </div>-->
+
+    <div th:if="${campFormDto.campImgDto == null}">
+      <div class="form-group">
+        <div class="custom-file img-div">
+          <input type="file" class="custom-file-input" name="campImgFile">
+          <label class="custom-file-label" th:text="캠핑장 대표 이미지"></label>
+        </div>
+      </div>
     </div>
-    <div class="add_form" style="display: flex; justify-content: center; ">
+
+    <div th:if="${campFormDto.campImgDto != null}">
+      <div class="form-group" th:each="campImgDto, status: ${campFormDto.campImgDto}">
+        <div class="custom-file img-div">
+          <input type="file" class="custom-file-input" name="campImgFile">
+          <input type="hidden" name="campImgId" th:value="${campImgDto.id}">
+          <label class="custom-file-label" th:text="${not #strings.isEmpty(campImgDto.oriImgName)} ?
+                    ${campImgDto.oriImgName} : '캠핑장 이미지' "></label>
+        </div>
+      </div>
+    </div>
+    <p th:if="${#fields.hasErrors('campImg')}" th:errors="*{campImg}" class="fieldError">Incorrect data</p>
+
+    <div class="add_form" style="display: flex; justify-content: center;">
       <button type="submit">등록하기</button>
     </div>
   </form>
