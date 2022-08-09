@@ -72,4 +72,10 @@ public class MemberController {
     public String likeCamp(){
         return "/member/likeCamp";
     }
+
+    // 내 예약 확인
+    @GetMapping(value = "/bookingList")
+    public String bookingList(){
+        return "/member/bookingList";
+    }
 }
