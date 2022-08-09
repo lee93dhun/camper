@@ -27,9 +27,7 @@
      -moz-appearance: none;
      appearance: none;
 }
-select{
-   color
-}
+
 select:hover{
     cursor: pointer;
 }
@@ -48,4 +46,16 @@ select:hover{
 }
 .active{
     border: 2px solid red;
+}
+
+.checkInOut-time{
+    display: flex;
+    justify-content: space-between;
+}
+.checkInOut-time input{
+    width: 49%;
+}
+.camp_info{
+    height: 100px;
+    resize: none;
 }
