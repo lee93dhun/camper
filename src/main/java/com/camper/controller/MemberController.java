@@ -66,4 +66,10 @@ public class MemberController {
         model.addAttribute("memberFormDto", new MemberFormDto());
         return "/member/myInfo";
     }
+
+    // 찜 목록
+    @GetMapping(value = "/likeCamp")
+    public String likeCamp(){
+        return "/member/likeCamp";
+    }
 }

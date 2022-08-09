@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/layout}">
+<head>
+    <meta charset="UTF-8">
+    <title>찜 목록</title>
+    <link rel="stylesheet" href="css/list_2.css">
+    <script>
+        function goRoomSearch(){
+            location.href='/roomSearch';
+        }
+    </script>
+</head>
+<body>
+<section layout:fragment="content" class="page_form">
+    <div class="search_form">
+
+
+        <div class="right_contents">
+            <div class="content_head">
+                <label>찜한 캠핑장 목록</label>
+                <button type="button">가격 높은순 / 낮은순</button>
+            </div>
+            <div class="r_content">
+                <table onclick="goRoomSearch()">
+                    <tr>
+                        <td rowspan="3" class="td_img"><img src="images/main/main_7.jpg"></td>
+                        <td class="content_item td_name">Mega Camping</td>
+                        <td rowspan="2" class="content_item td_price">1박 <span>150,000 ~</span></td>
+                    </tr>
+                    <tr>
+                        <td class="content_item td_hashtag">
+                            <label>#캠핑 #글램핑 #카라반</label>
+                            <label>#산</label>
+                            <label>#마포</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="content_item td_detail">
+                            국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
+                        </td>
+                        <td class="content_item td_heart"><i class="ri-heart-3-line"></i></td>
+                    </tr>
+                </table>
+
+                <!-- TEST TABLE -->
+                <table onclick="goRoomSearch()">
+                    <tr>
+                        <td rowspan="3" class="td_img"><img src="images/main/main_6.jpg"></td>
+                        <td class="content_item td_name">Brain Camping</td>
+                        <td rowspan="2" class="content_item td_price">1박 <span>100,000 ~</span></td>
+                    </tr>
+                    <tr>
+                        <td class="content_item td_hashtag">
+                            <label>#캠핑 #글램핑 #카라반</label>
+                            <label>#바다</label>
+                            <label>#구로</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="content_item td_detail">
+                            국내 최대 규모 캠핑장 BRAIN CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
+                        </td>
+                        <td class="content_item td_heart"><i class="ri-heart-3-line"></i></td>
+                    </tr>
+                </table>
+
+                <table onclick="goRoomSearch()">
+                    <tr>
+                        <td rowspan="3" class="td_img"><img src="images/main/main_8.jpg"></td>
+                        <td class="content_item td_name">Detail Camp</td>
+                        <td rowspan="2" class="content_item td_price">1박 <span>90,000 ~</span></td>
+                    </tr>
+                    <tr>
+                        <td class="content_item td_hashtag">
+                            <label>#캠핑 #글램핑</label>
+                            <label>#계곡</label>
+                            <label>#구로</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="content_item td_detail">
+                            국내 최대 규모 캠핑장 Detail CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
+                        </td>
+                        <td class="content_item td_heart"><i class="ri-heart-3-line"></i></td>
+                    </tr>
+                </table>
+
+                <table onclick="goRoomSearch()">
+                    <tr>
+                        <td rowspan="3" class="td_img"><img src="images/main/main_9.jpeg"></td>
+                        <td class="content_item td_name">I 캠핑장</td>
+                        <td rowspan="2" class="content_item td_price">1박 <span>90,000 ~</span></td>
+                    </tr>
+                    <tr>
+                        <td class="content_item td_hashtag">
+                            <label>#캠핑</label>
+                            <label>#계곡</label>
+                            <label>#은평</label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="content_item td_detail">
+                            국내 최대 규모 캠핑장 I 캠핑장 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.국내 최대 규모 캠핑장 MEGA CAMPING 입니다.
+                        </td>
+                        <td class="content_item td_heart"><i class="ri-heart-3-line"></i></td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+    </div>
+</section>
+</body>
+</html>
