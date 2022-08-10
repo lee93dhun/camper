@@ -28,7 +28,7 @@ public class Camp {
 
     private String campArea;// 지역
 
-    private String surrounding; // 주변환경
+    private String surroundings; // 주변환경
 
     private String inTime; // 입실시간
 
