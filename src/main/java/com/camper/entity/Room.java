@@ -22,9 +22,11 @@ public class Room {
 
     private String roomName;    // 객실이름
 
-    private int roomPrice;  // 객실가격
+    private Integer roomPrice;  // 객실가격
 
-    private String rommInfo;    // 객실정보
+    private String roomInfo;    // 객실정보
+
+//    private String campType;    // 객실 유형
 
     @Enumerated(EnumType.STRING)
     private RoomStatus roomStatus; // 객실 예약 상태

@@ -25,7 +25,7 @@ public class CampImgService {
 
         if (!StringUtils.isEmpty(oriImgName)){
             imgName = fileService.uploadFile(campImgLocation, oriImgName, campImgFile.getBytes());
-            imgUrl = "/images/item/"+imgName;
+            imgUrl = "/images/item1/"+imgName;
         }
 
         //캠프 이미지 정보 저장

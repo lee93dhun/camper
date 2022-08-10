@@ -92,39 +92,39 @@
       <select class="add_form_ctrl" th:field="*{campArea}">
         <option class="dropdown-op" value="" hidden>지역을 선택해 주세요.</option>
         <optgroup class="dropdown-op" label="서울">
-          <option class="dropdown-op" value="1">강남</option>
-          <option class="dropdown-op" value="2">구로</option>
-          <option class="dropdown-op" value="3">은평</option>
+          <option class="dropdown-op" value="강남">강남</option>
+          <option class="dropdown-op" value="구로">구로</option>
+          <option class="dropdown-op" value="은평">은평</option>
         </optgroup>
         <optgroup class="dropdown-op" label="경기도">
-          <option class="dropdown-op" value="4">수원</option>
-          <option class="dropdown-op" value="5">고양</option>
-          <option class="dropdown-op" value="6">부천</option>
+          <option class="dropdown-op" value="수원">수원</option>
+          <option class="dropdown-op" value="고양">고양</option>
+          <option class="dropdown-op" value="부천">부천</option>
         </optgroup>
         <optgroup class="dropdown-op" label="경상도">
-          <option class="dropdown-op" value="7">울산</option>
-          <option class="dropdown-op" value="8">대구</option>
-          <option class="dropdown-op" value="9">부산</option>
+          <option class="dropdown-op" value="울산">울산</option>
+          <option class="dropdown-op" value="대구">대구</option>
+          <option class="dropdown-op" value="부산">부산</option>
         </optgroup>
-        <!--        <optgroup class="dropdown-op" label="충청도">-->
-        <!--          <option class="dropdown-op" value="10">아산</option>-->
-        <!--          <option class="dropdown-op" value="11">당진</option>-->
-        <!--          <option class="dropdown-op" value="">천안</option>-->
-        <!--        </optgroup>-->
-        <!--        <optgroup class="dropdown-op" label="강원도">-->
-        <!--          <option class="dropdown-op" value="">속초</option>-->
-        <!--          <option class="dropdown-op" value="">평창</option>-->
-        <!--          <option class="dropdown-op" value="">강릉</option>-->
-        <!--        </optgroup>-->
-        <!--        <optgroup class="dropdown-op" label="전라도">-->
-        <!--          <option class="dropdown-op" value="">목포</option>-->
-        <!--          <option class="dropdown-op" value="">광주</option>-->
-        <!--          <option class="dropdown-op" value="">전주</option>-->
-        <!--        </optgroup>-->
-        <!--        <optgroup class="dropdown-op" label="제주">-->
-        <!--          <option class="dropdown-op" value="">제주</option>-->
-        <!--          <option class="dropdown-op" value="">서귀포</option>-->
-        <!--        </optgroup>-->
+        <optgroup class="dropdown-op" label="충청도">
+          <option class="dropdown-op" value="아산">아산</option>
+          <option class="dropdown-op" value="당진">당진</option>
+          <option class="dropdown-op" value="천안">천안</option>
+        </optgroup>
+        <optgroup class="dropdown-op" label="강원도">
+          <option class="dropdown-op" value="속초">속초</option>
+          <option class="dropdown-op" value="평창">평창</option>
+          <option class="dropdown-op" value="강릉">강릉</option>
+        </optgroup>
+        <optgroup class="dropdown-op" label="전라도">
+          <option class="dropdown-op" value="목포">목포</option>
+          <option class="dropdown-op" value="광주">광주</option>
+          <option class="dropdown-op" value="전주">전주</option>
+        </optgroup>
+        <optgroup class="dropdown-op" label="제주">
+          <option class="dropdown-op" value="제주">제주</option>
+          <option class="dropdown-op" value="서귀포">서귀포</option>
+        </optgroup>
       </select>
     </div>
     <p th:if="${#fields.hasErrors('campArea')}" th:errors="*{campArea}" class="fieldError">Incorrect data</p>
@@ -132,17 +132,13 @@
     <div class="add_form">
       <select class="add_form_ctrl" th:field="*{surroundings}" name="surrounding">
         <option class="dropdown-op" value="" hidden>캠핑장 주변환경을 선택해 주세요.</option>
-        <option class="dropdown-op" value="1">산</option>
-        <option class="dropdown-op" value="2">바다</option>
-        <option class="dropdown-op" value="3">계곡</option>
-        <option class="dropdown-op" value="4">도심</option>
+        <option class="dropdown-op" value="산">산</option>
+        <option class="dropdown-op" value="바다">바다</option>
+        <option class="dropdown-op" value="계곡">계곡</option>
+        <option class="dropdown-op" value="도심">도심</option>
       </select>
     </div>
     <p th:if="${#fields.hasErrors('surroundings')}" th:errors="*{surroundings}" class="fieldError">Incorrect data</p>
-
-    <!--    <div class="add_form">-->
-    <!--      <input type="text" class="add_form_ctrl img-1" th:field="*{campImg}" placeholder="캠핑장 대표 이미지">-->
-    <!--    </div>-->
 
     <div th:if="${campFormDto.campImgDto == null}">
       <div class="form-group">
