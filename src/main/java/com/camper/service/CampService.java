@@ -9,9 +9,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
-import org.thymeleaf.util.StringUtils;
-
-import java.util.List;
 
 @Service
 @Transactional
@@ -19,21 +16,23 @@ import java.util.List;
 public class CampService {
 
     private final CampRepository campRepository;
-    private final CampImgRepository campImgRepository;
 
     private final CampImgService campImgService;
 
-    public Long saveCamp(CampFormDto campFormDto, MultipartFile campImgFile)
-            throws Exception{
-        //캠핑장 등록
+    private final CampImgRepository campImgRepository;
+
+    public Long saveCamp(CampFormDto campFormDto, MultipartFile itemImgFile) throws Exception{
+
+        //캠프 등록
         Camp camp = campFormDto.createCamp();
         campRepository.save(camp);
+
         //이미지 등록
         CampImg campImg = new CampImg();
         campImg.setCamp(camp);
-        campImgService.saveCampImg(campImg,campImgFile);
+        campImgService.saveCampImg(campImg, itemImgFile);
 
         return camp.getId();
-    }
 
+    }
 }

@@ -22,40 +22,48 @@ public class CampController {
     private final CampService campService;
 
     /* 캠핑장 등록 페이지 불러오기 컨트롤러 */
-    @GetMapping(value = "/host/camp/new")
+    @GetMapping(value = "/campForm")
     public String campForm(Model model){
         model.addAttribute("campFormDto", new CampFormDto());
         return "camp/campForm";
     }
 
-    @PostMapping(value = "/host/camp/new")
+    @PostMapping(value = "/campForm")
     public String campNew(@Valid CampFormDto campFormDto, BindingResult bindingResult,
                           Model model, @RequestParam("campImgFile") MultipartFile campImgFile) {
+
+
         if(bindingResult.hasErrors()) {
+            System.out.println("1");
             return "camp/campForm";
         }
         if(campImgFile.isEmpty() && campFormDto.getId() == null){
+            System.out.println("2");
             model.addAttribute("errorMessage", "캠핑장 대표 이미지를 등록해주세요.");
             return "camp/campForm";
         }
         try{
+            System.out.println("3");
             campService.saveCamp(campFormDto, campImgFile);
+
         }catch (Exception e){
+            System.out.println("4");
             model.addAttribute("errorMessage", "캠핑장 등록중 에러가 발생하였습니다.");
             return "camp/campForm";
         }
+        System.out.println("5");
         return "redirect:/";
 
     }
 
-//  객실 등록 페이지 불러오기
+    //  객실 등록 페이지 불러오기
     @GetMapping(value = "/roomForm")
     public String roomForm(Model model){
 
         return "camp/roomForm";
     }
 
-// 예약현황 페이지 불러오기
+    // 예약현황 페이지 불러오기
     @GetMapping(value = "/reservation")
     public String reservation(Model model){
 
