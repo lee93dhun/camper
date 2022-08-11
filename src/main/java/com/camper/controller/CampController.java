@@ -63,7 +63,7 @@ public class CampController {
     }
     @PostMapping(value = "/roomForm")
     public String roomNew(@Valid RoomFormDto roomFormDto, BindingResult bindingResult,
-                          Model model, @RequestParam("roomImgFile") List<MultipartFile> roomImgFileList) {
+                          Model model, @RequestParam("roomImgFile") List<MultipartFile> roomImgFileList, Principal principal) {
         if (bindingResult.hasErrors()) {
             return "camp/roomForm";
         }
@@ -75,7 +75,7 @@ public class CampController {
         }
 
         try {
-            roomService.saveItem(roomFormDto, roomImgFileList);
+            roomService.saveRoom(roomFormDto, roomImgFileList, principal.getName());
         } catch (Exception e) {
             model.addAttribute("errorMessage",
                     "객실 등록 중 에러가 발생하였습니다.");

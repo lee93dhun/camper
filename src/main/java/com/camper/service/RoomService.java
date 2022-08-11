@@ -1,8 +1,11 @@
 package com.camper.service;
 
 import com.camper.dto.RoomFormDto;
+import com.camper.entity.Camp;
+import com.camper.entity.Member;
 import com.camper.entity.Room;
 import com.camper.entity.RoomImg;
+import com.camper.repository.MemberRepository;
 import com.camper.repository.RoomImgRepository;
 import com.camper.repository.RoomRepository;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.EntityNotFoundException;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,11 +26,15 @@ public class RoomService {
     private final RoomRepository roomRepository;
     private final RoomImgService roomImgService;
     private final RoomImgRepository roomImgRepository;
+    private final MemberRepository memberRepository;
 
-    public Long saveItem(RoomFormDto roomFormDto, List<MultipartFile> roomImgFileList) throws Exception {
+    public Long saveRoom(RoomFormDto roomFormDto, List<MultipartFile> roomImgFileList, String email) throws Exception {
 
         // 객실등록
         Room room = roomFormDto.createRoom();
+        Member member = memberRepository.findByEmail(email);
+        Camp camp = member.getCamp();
+        room.setCamp(camp);
         roomRepository.save(room);
         // 이미지 등록
         for (int i = 0; i < roomImgFileList.size(); i++) {
