@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.Valid;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -33,7 +34,7 @@ public class CampController {
 
     @PostMapping(value = "/campForm")
     public String campNew(@Valid CampFormDto campFormDto, BindingResult bindingResult,
-                          Model model, @RequestParam("campImgFile") MultipartFile campImgFile) {
+                          Model model, @RequestParam("campImgFile") MultipartFile campImgFile, Principal principal) {
 
 
         if(bindingResult.hasErrors()) {
@@ -45,7 +46,7 @@ public class CampController {
             return "camp/campForm";
         }
         try{
-            campService.saveCamp(campFormDto, campImgFile);
+            campService.saveCamp(campFormDto, campImgFile, principal.getName());
         }catch (Exception e){
             model.addAttribute("errorMessage", "캠핑장 등록중 에러가 발생하였습니다.");
             return "camp/campForm";

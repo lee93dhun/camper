@@ -1,5 +1,6 @@
 package com.camper.service;
 
+import com.camper.dto.MemberFormDto;
 import com.camper.entity.Member;
 import com.camper.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +8,7 @@ import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +22,13 @@ public class MemberService implements UserDetailsService {
         validateDuplicateMember(member);
         return memberRepository.save(member);
     }
+
+    /* 회원정보 수정하기 */
+    public void updateMember(MemberFormDto memberFormDto, PasswordEncoder passwordEncoder, Member oldMember){
+        Member newMember = Member.updateMember(memberFormDto, passwordEncoder,oldMember);
+        memberRepository.save(newMember);
+    }
+
     private void validateDuplicateMember(Member member){
         Member findMember = memberRepository.findByEmail(member.getEmail());
         if(findMember != null){
@@ -39,6 +48,19 @@ public class MemberService implements UserDetailsService {
                 .password(member.getPassword())
                 .roles(member.getRole().toString())
                 .build();
+    }
+
+    public MemberFormDto getMemberInfo(String email) throws UsernameNotFoundException{
+        Member member = memberRepository.findByEmail(email);
+
+        MemberFormDto memberFormDto = new MemberFormDto();
+        memberFormDto.setName(member.getName()); //유저 이름
+        memberFormDto.setEmail(member.getEmail()); //유저 이메일
+        memberFormDto.setPassword(member.getPassword()); //유저 비밀번호
+        memberFormDto.setPhoneNumber(member.getPhoneNumber()); //유저 핸드폰 번호
+
+        return memberFormDto;
+
     }
 
 }

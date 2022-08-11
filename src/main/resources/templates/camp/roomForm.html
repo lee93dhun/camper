@@ -10,25 +10,7 @@
     <th:block layout:fragment="script">
 
         <script th:inline="javascript">
-    $(document).ready(function(){
-        $('.camping').click(function(){
-            $('.camping').toggleClass('active')
-            $('.glamping').removeClass('active')
-            $('.caravan').removeClass('active')
-        });
 
-        $('.glamping').click(function(){
-            $('.glamping').toggleClass('active')
-            $('.camping').removeClass('active')
-            $('.caravan').removeClass('active')
-        });
-
-        $('.caravan').click(function(){
-            $('.caravan').toggleClass('active')
-            $('.camping').removeClass('active')
-            $('.glamping').removeClass('active')
-        });
-    });
 
     $(document).ready(function(){
         var errorMessage = [[${errorMessage}]];
@@ -36,6 +18,26 @@
             alert(errorMessage);
         }
         bindDomEvent();
+
+        // $('.camping').click(function(){
+        //     $('.camping').toggleClass('active')
+        //     $('.glamping').removeClass('active')
+        //     $('.caravan').removeClass('active')
+        // });
+        //
+        // $('.glamping').click(function(){
+        //     $('.glamping').toggleClass('active')
+        //     $('.camping').removeClass('active')
+        //     $('.caravan').removeClass('active')
+        // });
+        //
+        // $('.caravan').click(function(){
+        //     $('.caravan').toggleClass('active')
+        //     $('.camping').removeClass('active')
+        //     $('.glamping').removeClass('active')
+        // });
+
+
     });
 
     function bindDomEvent(){
@@ -76,6 +78,10 @@
             </div>
             <p th:if="${#fields.hasErrors('roomPrice')}" th:errors="*{roomPrice}" class="fieldError">Incorrect data</p>
 
+            <input type="radio" value="camping" th:field="*{campType}">캠핑
+            <input type="radio" value="glamping" th:field="*{campType}">글램핑
+            <input type="radio" value="caravan" th:field="*{campType}">카라반
+
 <!--            <div class="add_form" style="display: flex; justify-content: space-between;">-->
 <!--                <input type="button" class="type-btn camping" value="캠핑">-->
 <!--                <input type="button" class="type-btn glamping" value="글램핑">-->
@@ -107,22 +113,6 @@
                 </div>
             </div>
 
-
-<!--            <div class="add_form">-->
-<!--                <input type="text" class="add_form_ctrl img-1" placeholder="객실이미지 1">-->
-<!--            </div>-->
-<!--            <div class="add_form">-->
-<!--                <input type="text" class="add_form_ctrl img-2" placeholder="객실이미지 2">-->
-<!--            </div>-->
-<!--            <div class="add_form">-->
-<!--                <input type="text" class="add_form_ctrl img-3" placeholder="객실이미지 3">-->
-<!--            </div>-->
-<!--            <div class="add_form">-->
-<!--                <input type="text" class="add_form_ctrl img-4" placeholder="객실이미지 4">-->
-<!--            </div>-->
-<!--            <div class="add_form">-->
-<!--                <input type="text" class="add_form_ctrl img-5" placeholder="객실이미지 5">-->
-<!--            </div>-->
             <div class="add_form" style="display: flex; justify-content: center; ">
                 <button type="submit">등록하기</button>
             </div>

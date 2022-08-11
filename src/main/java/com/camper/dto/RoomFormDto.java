@@ -26,8 +26,8 @@ public class RoomFormDto {
     @NotBlank(message = "객실 정보를 입력해주세요.")
     private String roomInfo;    // 객실정보
 
-//    @NotBlank(message = "캠핑 유형을 선택해주세요.")
-//    private String campType;
+    @NotBlank(message = "캠핑 유형을 선택해주세요.")
+    private String campType;
 
     private RoomStatus roomStatus;
 

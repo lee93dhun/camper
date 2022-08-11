@@ -26,7 +26,7 @@ public class Room {
 
     private String roomInfo;    // 객실정보
 
-//    private String campType;    // 객실 유형
+    private String campType;    // 객실 유형
 
     @Enumerated(EnumType.STRING)
     private RoomStatus roomStatus; // 객실 예약 상태

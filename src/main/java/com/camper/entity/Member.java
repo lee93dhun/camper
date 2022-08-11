@@ -38,6 +38,10 @@ public class Member {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "camp_id")
+    private Camp camp;
+
     /* bo_id : 예약 아이디 는 일단 뺐습니다 */
 
     /* passwordEncoder를 제외하고 MemberFormDto에서 값을 가져와서
@@ -56,5 +60,16 @@ public class Member {
             member.setRole(Role.HOST);
 
         return member;
+    }
+
+    public static Member updateMember(MemberFormDto memberFormDto,PasswordEncoder passwordEncoder,Member oldMember){
+        oldMember.setName(memberFormDto.getName());
+        oldMember.setEmail(memberFormDto.getEmail());
+        String password = passwordEncoder.encode(memberFormDto.getPassword());
+        oldMember.setPassword(password);
+        oldMember.setPhoneNumber(memberFormDto.getPhoneNumber());
+        oldMember.setKind(oldMember.getKind());
+        oldMember.setRole(oldMember.getRole());
+        return oldMember;
     }
 }
